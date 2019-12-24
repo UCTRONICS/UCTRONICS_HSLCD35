@@ -37,11 +37,23 @@ else
 sudo cp ./usr/cmdline.txt /boot/
 fi
 sudo cp ./usr/inittab /etc/
-#sudo cp ./boot/config-mhs35.txt /boot/config.txt
 sudo touch ./.have_installed
 echo "gpio:resistance:mhs35:90:480:320" > ./.have_installed
-
 #FBCP install
+if [ $? -eq 0 ]; then
+sudo cp -rf ./usr/99-fbturbo-fbcp.conf  /usr/share/X11/xorg.conf.d/99-fbturbo.conf
+sudo cp -rf ./etc/rc.local /etc/rc.local
+sudo apt-get install git cmake -y 2> error_output.txt
+result=`cat ./error_output.txt`
+echo -e "\033[31m$result\033[0m"
+grep -q "^E:" ./error_output.txt && exit
+sudo mkdir ./rpi-fbcp/build
+cd ./rpi-fbcp/build/
+sudo cmake ..
+sudo make
+sudo install fbcp /usr/local/bin/fbcp
+cd - > /dev/null
+fi
 version=`uname -v`
 version=${version##* }
 echo $version
