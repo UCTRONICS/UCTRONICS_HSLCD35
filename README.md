@@ -2,6 +2,7 @@
 UCTRONICS release high speed lcd35 with spi interface for Raspberrypi
 
 ## Quickly install driver 
+- git clone https://github.com/UCTRONICS/UCTRONICS_HSLCD35.git
 
 -  For Raspbian
 ```bash
