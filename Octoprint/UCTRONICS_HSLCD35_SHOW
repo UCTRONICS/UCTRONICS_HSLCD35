@@ -10,6 +10,7 @@ sudo cp ./boot/config-mhs35.txt /boot/config.txt
 #FBCP install
 sudo cp -rf ./etc/rc.local /etc/rc.local
 sudo apt-get install git cmake -y
+sudo mkdir ./rpi-fbcp/build
 cd ./rpi-fbcp/build/
 sudo cmake ..
 sudo make
