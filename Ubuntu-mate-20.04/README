@@ -1,0 +1,13 @@
+### Usage
+```bash
+cd UCTRONCIS_HSLCD35
+```
+```bash
+chmod -R 755 Ubuntu-mate-20.04
+```
+```bash
+cd Ubuntu-mate-20.04
+```
+```bash
+sudo ./UCTRONICS_HSLCD35_SHOW
+```
