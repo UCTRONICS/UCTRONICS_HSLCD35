@@ -1,4 +1,8 @@
 #!/bin/bash 
+
+row=`grep -nr "dtoverlay=vc4-fkms-v3d" /boot/config.txt | awk -F ':' '{if(NR==1)printf $1}'`
+sudo sed -i -e ''"$row"'s/dtoverlay=vc4-fkms-v3d/#dtoverlay=vc4-fkms-v3d/' /boot/config.txt
+
 echo "Enable spi bus..."
 sudo sed 's/dtparam=spi=on//g' -i /boot/config.txt
 sudo sed '/^$/d' -i /boot/config.txt
